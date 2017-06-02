@@ -21,11 +21,11 @@
                     <div class="panel-body">
                          <!-- form to submit data -->
                          <div>
-                              <div class="form-group">
-                                   <label for="email-input">Email address:</label>
+                              <div class="form-group" id="formText">
+                                   <label for="email-input" >Email address:</label>
                                    <input class="form-control" id="email-input" type="text" placeholder="randomRachel@yourMail.com">
                               </div>
-                              <div class="form-group">
+                              <div class="form-group" id="formText1">
                                    <label for="password-input">Password</label>
                                    <input class="form-control" id="password-input" type="text" placeholder="your password here">
                               </div>
@@ -59,32 +59,32 @@
                $("#logout-button").hide();
                // initialize and setup Facebook SDK \\
                
-               window.fbAsyncInit = function() {
-                    FB.init({
-                         appId: '435131476853178',
-                         autoLogAppEvents: true,
-                         xfbml: true,
-                         version: 'v2.9'
-                    });
-                    FB.getLoginStatus(function(response){
-                      if(response.status === 'connected') {
-                        document.getElementById('facebook-status').innerHtml = 'We Are Connected!';
-                      } else if (resposne.status === 'not_authorized') {
-                        document.getElementById('facebook-status').innerHtml = 'we are not logged in...';
-                      }
-                    })
-               };
+               // window.fbAsyncInit = function() {
+               //      FB.init({
+               //           appId: '435131476853178',
+               //           autoLogAppEvents: true,
+               //           xfbml: true,
+               //           version: 'v2.9'
+               //      });
+               //      FB.getLoginStatus(function(response){
+               //        if(response.status === 'connected') {
+               //          document.getElementById('facebook-status').innerHtml = 'We Are Connected!';
+               //        } else if (resposne.status === 'not_authorized') {
+               //          document.getElementById('facebook-status').innerHtml = 'we are not logged in...';
+               //        }
+               //      })
+               // };
 
-               (function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) {
-                         return;
-                    }
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "https://connect.facebook.net/en_US/sdk.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-               }(document, 'script', 'facebook-jssdk'));
+               // (function(d, s, id) {
+               //      var js, fjs = d.getElementsByTagName(s)[0];
+               //      if (d.getElementById(id)) {
+               //           return;
+               //      }
+               //      js = d.createElement(s);
+               //      js.id = id;
+               //      js.src = "https://connect.facebook.net/en_US/sdk.js";
+               //      fjs.parentNode.insertBefore(js, fjs);
+               // }(document, 'script', 'facebook-jssdk'));
            
 
 
@@ -108,7 +108,7 @@
                const loginButton = document.getElementById('login-button');
                const logoutButton = document.getElementById('logout-button');
                const signupButton = document.getElementById('signup-button');
-
+               const loginWithGoogleButton = document.getElementById('login-with-google-button');
                // add login events \\
                loginButton.addEventListener('click', e => {
 
@@ -149,10 +149,25 @@
                     promise.catch(e => console.log(e.message));
                })
 
+               loginWithGoogleButton.addEventListener('click', e => {
+               
+            
+                console.log(provider);
+                provider.addScope('profile');
+                provider.addScope('email');
+
+
+                firebase.auth().signinWithRedirect(provider).catch(function(error) {
+                  console.log("google error", error);
+                });
+               })
+
                // add real-time listener \\
                firebase.auth().onAuthStateChanged(firebaseUser => {
                     if (firebaseUser) {
                          console.log(firebaseUser);
+                         $("#email-input, #password-input, #login-button, #formText, #formText1, #login-with-google-button, #signup-button").hide();
+                         $("#logout-button").show();
 
                     } else {
                          console.log('not logged in');
@@ -162,7 +177,10 @@
                // add logout events \\
                logoutButton.addEventListener('click', e => {
                     firebase.auth().signOut();
+                    $("#login-button, #email-input, #password-input, #formText1, #formText, #signup-button").show();
                })
+
+
                </script>
 </body>
 
