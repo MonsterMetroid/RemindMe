@@ -1,0 +1,48 @@
+body {
+	background: url(https://byf8h.files.wordpress.com/2016/04/string-on-finger.jpg?w=240);
+	background-size: cover;
+	font-family: Lato;
+	color: white;
+}
+
+html {
+	height: 100%;
+}
+
+#content {
+	text-align: center;
+	padding-top: 20%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 5em;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1 px solid rgba(0,0,0,0.2);
+}
+
+/*.container {
+	background-image: url(http://www.wallsimple.com/wp-content/uploads/2016/05/blue_sky_157ABC_high_definition_awesome.jpg);
+}*/
+
+#signUpForm {
+	color: black;
+	margin-top: 30px;
+}
+
+#logInForm {
+	color: black;
+	margin-top: 30px;
+}
+
+#messageForm {
+	color: black;
+	margin-top: 30px;
+}
