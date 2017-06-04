@@ -1,16 +1,17 @@
 {
   "name": "remindme",
   "version": "1.0.0",
-  "description": "Text reminder app",
-  "main": "index.js",
+  "description": "A webapp designed to send SMS messages to your phone at a prescribed time",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MonsterMetroid/RemindMe.git"
   },
-  "author": "Rob, Drew, Danae",
+  "authors": "Robert, Drew, and Danane",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MonsterMetroid/RemindMe/issues"
@@ -21,6 +22,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "multer": "^1.3.0",
-    "node-schedule": "^1.2.3"
+    "node-schedule": "^1.2.3",
+    "twilio": "^3.3.0"
   }
 }
