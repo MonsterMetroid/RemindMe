@@ -1,12 +1,19 @@
+// window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('#recaptcha-container');
+
 // get elements
 const txtEmail = document.getElementById('email-input');
 const txtPassword = document.getElementById('password-input');
+const txtName = document.getElementById('name-input');
+const txtUsername = document.getElementById('username-input');
 const txtphoneNumber = document.getElementById('phone-number-input');
+const txtMessage = document.getElementById('message-input');
 const loginButton = document.getElementById('login-button');
 const logoutButton = document.getElementById('logoutButton');
 const signupButton = document.getElementById('signup-button');
 const phonenumberButton = document.getElementById('phoneButton');
+const scheduleMessge = document.getElementById('scheduleMessgeButton');
 var userSignedIn = false;
+
 
 
 // initailize firebase \\
@@ -20,7 +27,7 @@ var config = {
 };
      firebase.initializeApp(config);
      var database = firebase.database();
-     var provider = new firebase.auth.GoogleAuthProvider();
+     
 
      // add event-listenr to login button, and when clicked... \\
      loginButton.addEventListener('click', e => {
@@ -48,32 +55,56 @@ signupButton.addEventListener('click', e => {
           // get email an password \\
           const email = txtEmail.value;
           const password = txtPassword.value;
-
+          const phoneNumber = txtphoneNumber.value;
+          const name = txtName.value;
+          const username = txtUsername.value;
           const auth = firebase.auth();
+
+
+          
+
           
 
           // create user and sign user in \\
           const promise = auth.createUserWithEmailAndPassword(email, password);
 
           promise.catch(e => console.log(e.message));
- })
-          // add event-listener to phoneNumber button
-phonenumberButton.addEventListener('click', e => {
-          const userNumber = txtphoneNumber.value;
-          console.log("userPhoneNumber  " + txtPhonenumber);
-          console.log(userNumber);
- })
+          // store related variables in object \\
+        const user = {
+             name: name,
+             email: email,
+             number: phoneNumber,
+             username: username
+
+        }
      
 
+        database.ref(username).push(user);
+        console.log(user.number);
 
+ })
+          
+// Upon new entry to databse, update html with new data \\
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+     console.log(childSnapshot.val());
+     // Store everything into a variable.
+     const userName = childSnapshot.val().name;
+     const destination = childSnapshot.val().number;
+     const sms = childSnapshot.val().textMessage;
+
+
+     
+
+});
 // add real-time  listener for user logged-in status 
 firebase.auth().onAuthStateChanged(firebaseUser => {
      // if user signed in
      if (firebaseUser) {
           console.log(firebaseUser);
           // hide unneeded login and signup features 
-          $("#email-input, #password-input, #login-button, #formText, #formText1, #login-with-google-button, #signup-button, #phone-number-input, #phoneButton").hide();
+          $("#email-input, #password-input, #name-input, #username-input, #login-button, #signup-button, #phone-number-input").hide();
           // show logout button
+          $("#logoutButton, #scheduleMessgeButton, #messageBox").show();
           
 
 
@@ -81,7 +112,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
      } else {
           console.log('not logged in');
           $("#email-input, #password-input, #login-button, #formText, #formText1, #signup-button, #phone-number-input, #phoneButton").show();
-          $("#logoutButton").hide();
+          $("#logoutButton, #scheduleMessgeButton, #messageBox").hide();
 
      }
 });
@@ -90,5 +121,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 logoutButton.addEventListener('click', e => {
      firebase.auth().signOut();
      $("#login-button, #email-input, #password-input, #formText1, #formText, #signup-button").show();
+     $("#email-input, #password-input, #phone-number-input, #username-input, #name-input").text(" ");
 })
 
