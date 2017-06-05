@@ -1,7 +1,7 @@
 {
   "name": "remindme",
   "version": "1.0.0",
-  "description": "A webapp designed to send SMS messages to your phone at a prescribed time",
+  "description": "A Webapp that sends an SMS reminder to a phone at a specified time",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/MonsterMetroid/RemindMe.git"
   },
-  "authors": "Robert, Drew, and Danane",
+  "author": "Drew Robert, and Danae",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MonsterMetroid/RemindMe/issues"
