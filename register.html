@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <!-- minified jquery cdn -->
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+     <!-- minified bootstrap theme -->
+     <link rel="stylesheet" type="text/css" href="bsTheme.css">
+     <script src="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.js"></script>
+     <title>remindMe</title>
+</head>
+
+<body>
+     <div class="container">
+          <div class="row">
+               <div class="col-md-4">
+                    <div class="panel-body">
+                         <!-- form to submit data -->
+                         <div>
+                              <div class="form-group">
+                                   <label>Name</label>
+                                   <input type="text" class="form-control" placeholder="Name" name="name" id="name-input">
+                              </div>
+                              <div class="form-group">
+                                   <label>Username</label>
+                                   <input type="text" class="form-control" placeholder="Name" name="name" id="username-input">
+                              </div>
+                              <div class="form-group" id="formText">
+                                   <label for="email-input">Email Address</label>
+                                   <input class="form-control" id="email-input" type="text" placeholder="randomRachel@yourMail.com">
+                              </div>
+                              <div class="form-group" id="formText">
+                                   <label for="password-input">Password</label>
+                                   <input class="form-control" id="password-input" type="text" placeholder="your password here">
+                              </div>
+                              <div class="form-group" id="formText">
+                                   <label for="phone-number-input">Phone Number</label>
+                                   <input class="form-control" id="phone-number-input" type="text" placeholder="+18765554433">
+                              </div>
+                              <div class="form-group" id="messageBox">
+                              <label for="message-input">Your SMS Message</label>
+                              <textarea class="form-control" id="message-input" type="text" placeholder="Your message here" rows="3"></textarea>
+                              </div>
+                              <br>
+                              <div class="row">
+                                   <div class="col-md-3">
+                                        <button class="btn btn-primary" id="login-button" type="submit">Login</button>
+                                   </div>
+                                   <div class="col-md-3">
+                                        <button class="btn btn-secondary" id="signup-button" type="submit">Signup</button>
+                                   </div>
+                                   <div class="col-md-3">
+                                        <button class="btn btn-secondary pull-right" id="logoutButton" type="submit">logout
+                                        </button>
+                                   </div>
+                                   <div class="col-md-3">
+                                        <button class="btn btn-success pull-right" id="scheduleMessageButton" type="submit">Schedule Message
+                                        </button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+          <script type="text/javascript" src="javascript/userAuthfire.js">
+          </script>
+</body>
+
+</html>

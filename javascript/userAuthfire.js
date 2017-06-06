@@ -1,4 +1,4 @@
-// window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('#recaptcha-container');
+
 
 // get elements
 const txtEmail = document.getElementById('email-input');
@@ -11,8 +11,12 @@ const loginButton = document.getElementById('login-button');
 const logoutButton = document.getElementById('logoutButton');
 const signupButton = document.getElementById('signup-button');
 const phonenumberButton = document.getElementById('phoneButton');
-const scheduleMessge = document.getElementById('scheduleMessgeButton');
-var userSignedIn = false;
+const scheduleMessageButton = document.getElementById('scheduleMessgeButton');
+
+// node packages 
+const express = require('express');
+const app = express();
+const router = require('')
 
 
 
@@ -78,7 +82,7 @@ signupButton.addEventListener('click', e => {
 
         }
      
-
+        // push user object to database, refrencing username as child_node name \\
         database.ref(username).push(user);
         console.log(user.number);
 
@@ -102,17 +106,19 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser) {
           console.log(firebaseUser);
           // hide unneeded login and signup features 
-          $("#email-input, #password-input, #name-input, #username-input, #login-button, #signup-button, #phone-number-input").hide();
+          $("#email-input, #password-input, #name-input, #username-input, #login-button, #signup-button, #phone-number-input, #logoutButton").hide();
           // show logout button
-          $("#logoutButton, #scheduleMessgeButton, #messageBox").show();
+          $("#logoutButton, #scheduleMessageButton, #messageBox").show();
           
 
 
           // do nothing until user logs in or signs up
      } else {
           console.log('not logged in');
+          // show needed input field
           $("#email-input, #password-input, #login-button, #formText, #formText1, #signup-button, #phone-number-input, #phoneButton").show();
-          $("#logoutButton, #scheduleMessgeButton, #messageBox").hide();
+          // hide unneeded fields
+          $("#logoutButton, #scheduleMessageButton, #messageBox").hide();
 
      }
 });
