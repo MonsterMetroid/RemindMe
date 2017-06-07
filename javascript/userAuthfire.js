@@ -8,15 +8,11 @@ const txtUsername = document.getElementById('username-input');
 const txtphoneNumber = document.getElementById('phone-number-input');
 const txtMessage = document.getElementById('message-input');
 const loginButton = document.getElementById('login-button');
-const logoutButton = document.getElementById('logoutButton');
-const signupButton = document.getElementById('signup-button');
+const logoutButton = document.getElementById('logout-button');
+var signupButton = document.getElementById('signup-button');
 const phonenumberButton = document.getElementById('phoneButton');
 const scheduleMessageButton = document.getElementById('scheduleMessgeButton');
 
-// node packages 
-const express = require('express');
-const app = express();
-const router = require('')
 
 
 
@@ -105,10 +101,11 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
      // if user signed in
      if (firebaseUser) {
           console.log(firebaseUser);
+          console.log("logged in");
           // hide unneeded login and signup features 
-          $("#email-input, #password-input, #name-input, #username-input, #login-button, #signup-button, #phone-number-input, #logoutButton").hide();
+          $("#messaging-container, #email-input, #password-input, #name-input, #username-input, #login-button, #signup-button, #phone-number-input, #formText, #login-container, #register-container").hide();
           // show logout button
-          $("#logoutButton, #scheduleMessageButton, #messageBox").show();
+          $("#logout-button, #scheduleMessageButton, #messaging-container").show();
           
 
 
@@ -116,9 +113,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
      } else {
           console.log('not logged in');
           // show needed input field
-          $("#email-input, #password-input, #login-button, #formText, #formText1, #signup-button, #phone-number-input, #phoneButton").show();
+          $("#email-input, #password-input, #login-button, #formText, #formText1, #signup-button, #phone-number-input, #phoneButton, #register-container, #login-container").show();
           // hide unneeded fields
-          $("#logoutButton, #scheduleMessageButton, #messageBox").hide();
+          $("#logout-button, #scheduleMessageButton, #messaging-container").hide();
 
      }
 });
@@ -128,5 +125,6 @@ logoutButton.addEventListener('click', e => {
      firebase.auth().signOut();
      $("#login-button, #email-input, #password-input, #formText1, #formText, #signup-button").show();
      $("#email-input, #password-input, #phone-number-input, #username-input, #name-input").text(" ");
-})
+});
+
 

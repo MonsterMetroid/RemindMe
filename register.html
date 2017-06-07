@@ -1,27 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-     <!-- minified jquery cdn -->
-     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-     <!-- minified bootstrap theme -->
-     <link rel="stylesheet" type="text/css" href="bsTheme.css">
-     <script src="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.js"></script>
-     <title>remindMe</title>
+     <meta charset="UTF-8">
+     <title>Remind Me!</title>
+     <script src="https://use.fontawesome.com/f7d69fdfeb.js"></script>
+     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="../public/bsTheme.css">
 </head>
 
 <body>
-     <div class="container">
+     <!--NAV BAR-->
+     <nav class="navbar navbar-default">
+          <div class="container">
+               <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Remind Me!</a>
+               </div>
+          </div>
+     </nav>
+     <div class="container" id="register-container">
           <div class="row">
                <div class="col-md-4">
                     <div class="panel-body">
                          <!-- form to submit data -->
                          <div>
-                              <div class="form-group">
+                              <div class="form-group" id="formText">
                                    <label>Name</label>
                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name-input">
                               </div>
-                              <div class="form-group">
+                              <div class="form-group" id="formText">
                                    <label>Username</label>
                                    <input type="text" class="form-control" placeholder="Name" name="name" id="username-input">
                               </div>
@@ -37,10 +51,7 @@
                                    <label for="phone-number-input">Phone Number</label>
                                    <input class="form-control" id="phone-number-input" type="text" placeholder="+18765554433">
                               </div>
-                              <div class="form-group" id="messageBox">
-                              <label for="message-input">Your SMS Message</label>
-                              <textarea class="form-control" id="message-input" type="text" placeholder="Your message here" rows="3"></textarea>
-                              </div>
+                             
                               <br>
                               <div class="row">
                                    <div class="col-md-3">
@@ -50,7 +61,7 @@
                                         <button class="btn btn-secondary" id="signup-button" type="submit">Signup</button>
                                    </div>
                                    <div class="col-md-3">
-                                        <button class="btn btn-secondary pull-right" id="logoutButton" type="submit">logout
+                                        <button class="btn btn-secondary pull-right" id="logout-button" type="submit">logout
                                         </button>
                                    </div>
                                    <div class="col-md-3">
@@ -62,6 +73,70 @@
                     </div>
                </div>
           </div>
+          </div>
+          
+<!-- Messaging Panel Container -->
+
+<!--Message Form-->
+<div class="container" id="messaging-container">
+     <div class="row">
+          <div class="col-lg-12">
+              <form id="messageForm" name="sentMessage" novalidate>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title">Reminder Text Message</h3>
+                              </div>
+                              <div class="panel-body">
+
+
+                                <div class="form-group">
+                                    <label for="comment-input">Enter Message Here</label>
+                                    <textarea class="form-control" id="comment-input" rows="5" placeholder="e.g. Don't Forget..."></textarea>
+                                </div>                        
+
+                                <div class="form-group">
+                                    <label for="date-input">Send on</label>
+                                    <input class="form-control" id="date" type="date" placeholder="Enter date *" required data-validation-required-message="Please enter date.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="time-input">At</label>
+                                    <input class="form-control" id="time" type="time" placeholder="Enter time *" required data-validation-required-message="Please enter time.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                
+                                <div>
+                                <button class="btn btn-success btn-xl active" id="scheduleMessageButton">Schedule Message</button>
+                                </div>
+</form>
+                              </div>
+                              </div>
+                              </div>
+                                    
+                            <div class="col-lg-6">
+                              <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                      <h3 class="panel-title"></h3>
+                                  </div>
+                                  <div class="panel-body">
+                                    <p id="comment-display">Scheduled message text will go here.</p>
+                                    <h6 id="date-display">06/01/2017</h6>
+                                    <h6 id="time-display">10:30AM</h6>
+                                  </div>
+                              </div>
+          
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          <script src="https://code.jquery.com/jquery-3.2.1.js " integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin=" anonymous "></script>
           <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
           <script type="text/javascript" src="javascript/userAuthfire.js">
           </script>
