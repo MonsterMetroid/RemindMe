@@ -48,15 +48,11 @@ var config = {
      promise.catch(e => console.log(e.message));
 });
 
-
-
-          // attach listener to signup button 
 signupButton.addEventListener('click', e => {
           // get email an password \\
           const email = txtEmail.value;
           const password = txtPassword.value;
           const phoneNumber = txtphoneNumber.value;
-          const name = txtName.value;
           const username = txtUsername.value;
           const auth = firebase.auth();
 
@@ -74,7 +70,8 @@ signupButton.addEventListener('click', e => {
              name: name,
              email: email,
              number: phoneNumber,
-             username: username
+             username: username,
+             password: password
 
         }
      
@@ -82,18 +79,17 @@ signupButton.addEventListener('click', e => {
         database.ref(username).push(user);
         console.log(user.number);
 
- })
+ 
           
-// Upon new entry to databse, update html with new data \\
+// Upon new entry to database, update html with new data \\
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-     console.log(childSnapshot.val());
      // Store everything into a variable.
      const userName = childSnapshot.val().name;
      const destination = childSnapshot.val().number;
      const sms = childSnapshot.val().textMessage;
 
 
-     
+    }); 
 
 });
 // add real-time  listener for user logged-in status 

@@ -7,7 +7,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 8080; // set our port
 
 var schedule = require('node-schedule');
 
@@ -33,45 +33,44 @@ var Rob = '+14805289474'
 
 //if chron iformation is left out of the route then it will execute the message every minute on the minute
 router.get('/remind/:number/:message', function(req, res) {
-     var j = schedule.scheduleJob('0 * * * * *', function() { 
-          var destination = '*'+ req.params.number;
+     var j = schedule.scheduleJob('0 * * * * *', function() {
+          var destination = '*' + req.params.number;
           var message = String(req.params.message);
           console.log("this is what was sent " + message + " and this is who it was sent to: " + destination);
-         
+
           client.messages.create({
                body: message,
                to: destination, //  Text this number
                from: '+14803729323' // From a valid Twilio number
-          })          
+          })
      })
 });
 
 //provide phone numberto be sent to message and chron fields
 router.get('/remind/:number/:message/:chrS/:chrM/:chrH/:chrD/:chrMo/:chrDoW', function(req, res) {
-     var j = schedule.scheduleJob(''+ req.params.chrS + ' '+ //chron second value
-     	req.params.chrM + ' '+ //chron minute value
-     	req.params.chrH + ' '+ //chron Hour value
-     	req.params.chrD + ' '+ //chron Day value
-     	req.params.chrMo + ' '+ //chron month value
-     	req.params.chrDoW + '', function() { //chron day of week value (doesnt work as of now i believe)
-          var destination = '*'+ req.params.number;
-          var message = String(req.params.message);
-          console.log("this is what was sent " + message + " and this is who it was sent to: " + destination);
-         
-          client.messages.create({
-               body: message,
-               to: destination, //  Text this number
-               from: '+14803729323' // From a valid Twilio number
-          })          
-     })
+     var j = schedule.scheduleJob('' + req.params.chrS + ' ' + //chron second value
+          req.params.chrM + ' ' + //chron minute value
+          req.params.chrH + ' ' + //chron Hour value
+          req.params.chrD + ' ' + //chron Day value
+          req.params.chrMo + ' ' + //chron month value
+          req.params.chrDoW + '',
+          function() { //chron day of week value (doesnt work as of now i believe)
+               var destination = '*' + req.params.number;
+               var message = String(req.params.message);
+               console.log("this is what was sent " + message + " and this is who it was sent to: " + destination);
+
+               client.messages.create({
+                    body: message,
+                    to: destination, //  Text this number
+                    from: '+14803729323' // From a valid Twilio number
+               })
+          })
 });
 
 app.use('/api', router);
 
 
-var server = app.listen(port, function(){
-	var host = server.address().address
-	console.log("RemindMe app api listening at http://%s:%s", host, port)
+var server = app.listen(port, function() {
+     var host = server.address().address
+     console.log("RemindMe app api listening at http://%s:%s", host, port)
 });
-
-

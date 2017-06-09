@@ -1,0 +1,115 @@
+body {
+	/*background: url("http://www.onecallmedicalalert.com/blog/wp-content/uploads/2013/07/99E6A25773CE7C161A7D58F6F023.jpg") no-repeat center;*/
+	background: url(http://www.publicdomainpictures.net/pictures/30000/velka/blue-sky-1330598792xLu.jpg);
+	/*background-image: url("../assets/images/string-on-finger-wide.jpg");*/
+	/*background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL-dDmYdAq4MbrqpDwGLzWE8uAy-mSMGJZCZLMLpkoA7hEoCNt);*/
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background: cover;
+
+}
+
+/*background-image: url(http://www.wallsimple.com/wp-content/uploads/2016/05/blue_sky_157ABC_high_definition_awesome.jpg);
+*/
+
+html, body {
+	height: 100%;
+}
+
+.navbar {
+	background-color: white;
+}
+
+.navbar .navbar-brand {
+	color: #2A6EBB;
+}
+
+#content {
+	margin-left: 18%;
+	/*padding-top: 1%;*/
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#subcontent {
+	margin-top: -80px;
+	text-align: center;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+
+}
+h1 {
+	font-weight: 700;
+	font-size: 6em;
+	color: white;
+	font-family: Lato;
+}
+
+h3 {
+	color: white;
+	font-family: Lato;
+	font-size: 2em;
+	margin-bottom: 20px;
+}
+
+#bubble {
+	margin-left: -30px;
+}
+
+#finger {
+	padding: 10px;
+	margin-right: 20px;
+	border: round;
+}
+
+#signup-button {
+	color: white;
+}
+
+hr {
+	width: 450px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1 px solid rgba(0,0,0,0.2);
+}
+
+#panel-center {
+	margin-top: 50px;
+	margin-left: 300px;
+	margin-right: 300px;
+	width: 500px;
+}
+
+.panel .panel-heading {
+	background-color: white;
+}
+
+.panel-title {
+	color: #2A6EBB;
+	font-size: 20px;
+	text-align: center;
+}
+
+#signUpForm {
+	color: black;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#carrier {
+	width: 465px;
+	height: 33px;
+	color: gray;
+}
+
+#logInForm {
+	color: black;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#messageForm {
+	color: black;
+	margin-top: 30px;
+}
