@@ -27,14 +27,14 @@
         <li><a href="about.html">About</a></li> 
       </ul> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html"><button class="btn btn-primary btn-xl active">Log out</button></a></li>
+        <li><a href="index.html" id="logout-button"><button class="btn btn-primary btn-xl active">Log out</button></a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!--Log in form-->
-<div class="container">
+<div class="container" id="login-container">
 	<div class="row">
 		<div class="col-lg-12">
             <form id="logInForm" name="sentMessage" novalidate>
@@ -48,17 +48,17 @@
           					<div class="panel-body">
 
                                 <div class="form-group">
-                                    <input class="form-control" id="email" type="email" placeholder="Email Address*" required data-validation-required-message="Please enter your email address or phone number.">
+                                    <input class="form-control" id="email-input" type="email" placeholder="Email Address*" required data-validation-required-message="Please enter your email address or phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>                        
 
                                 <div class="form-group">
-                                    <input class="form-control" id="password" type="text" placeholder="Password *" required data-validation-required-message="Please enter password.">
+                                    <input class="form-control" id="password-input" type="text" placeholder="Password *" required data-validation-required-message="Please enter password.">
                                     <p class="help-block text-danger"></p>
                                 </div>
 								
 								<div>
-                                <button class="btn btn-success btn-xl active">Log in</button>
+                                <button class="btn btn-success btn-xl active" id="login-button">Log in</button>
                                 </div>
 
 
@@ -74,7 +74,7 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container" id="messaging-container">
      <div class="row">
           <div class="col-lg-12">
               <form id="messageForm" name="sentMessage" novalidate>
@@ -89,23 +89,23 @@
 
                                 <div class="form-group">
                                     <label for="comment-input">Enter Message Here</label>
-                                    <textarea class="form-control" id="comment-input" rows="5" placeholder="e.g. Don't Forget..."></textarea>
+                                    <textarea class="form-control" id="message-input" rows="5" placeholder="e.g. Don't Forget..."></textarea>
                                 </div>                        
 
                                 <div class="form-group">
                                     <label for="date-input">Send on</label>
-                                    <input class="form-control" id="date" type="date" placeholder="Enter date *" required data-validation-required-message="Please enter date.">
+                                    <input class="form-control" id="date-input" type="date" placeholder="Enter date *" required data-validation-required-message="Please enter date.">
                                     <p class="help-block text-danger"></p>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="time-input">At</label>
-                                    <input class="form-control" id="time" type="time" placeholder="Enter time *" required data-validation-required-message="Please enter time.">
+                                    <input class="form-control" id="time-input" type="time" placeholder="Enter time *" required data-validation-required-message="Please enter time.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                 
                                 <div>
-                                <button class="btn btn-success btn-xl active">Submit</button>
+                                <button class="btn btn-success btn-xl active" id="schedule-msg-button">Submit</button>
                                 </div>
 </form>
                               </div>
