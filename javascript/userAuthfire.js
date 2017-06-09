@@ -16,18 +16,20 @@ const scheduleMessageButton = document.getElementById('scheduleMessgeButton');
 
 
 
-// initailize firebase \\
-var config = {
-     apiKey: "AIzaSyAhCyPqOp9XfEGJvb1rFdqiDbQxL_ioi9o",
-     authDomain: "remindme-ea1a5.firebaseapp.com",
-     databaseURL: "https://remindme-ea1a5.firebaseio.com",
-     projectId: "remindme-ea1a5",
-     storageBucket: "remindme-ea1a5.appspot.com",
-     messagingSenderId: "831972778332"
-};
-     firebase.initializeApp(config);
-     var database = firebase.database();
-     
+// // initailize firebase \\
+  // Initialize Firebase
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAhCyPqOp9XfEGJvb1rFdqiDbQxL_ioi9o",
+    authDomain: "remindme-ea1a5.firebaseapp.com",
+    databaseURL: "https://remindme-ea1a5.firebaseio.com",
+    projectId: "remindme-ea1a5",
+    storageBucket: "remindme-ea1a5.appspot.com",
+    messagingSenderId: "831972778332"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
 
      // add event-listenr to login button, and when clicked... \\
      loginButton.addEventListener('click', e => {
@@ -46,9 +48,10 @@ var config = {
 
 
      promise.catch(e => console.log(e.message));
-});
+})
 
 signupButton.addEventListener('click', e => {
+  
           // get email an password \\
           const email = txtEmail.value;
           const password = txtPassword.value;
@@ -58,7 +61,6 @@ signupButton.addEventListener('click', e => {
 
 
           
-
           
 
           // create user and sign user in \\
@@ -66,8 +68,8 @@ signupButton.addEventListener('click', e => {
 
           promise.catch(e => console.log(e.message));
           // store related variables in object \\
-        const user = {
-             name: name,
+        var user = {
+             
              email: email,
              number: phoneNumber,
              username: username,
@@ -77,10 +79,10 @@ signupButton.addEventListener('click', e => {
      
         // push user object to database, refrencing username as child_node name \\
         database.ref(username).push(user);
-        console.log(user.number);
+ 
 
  
-          
+  });     
 // Upon new entry to database, update html with new data \\
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
      // Store everything into a variable.
@@ -91,7 +93,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
     }); 
 
-});
+
 // add real-time  listener for user logged-in status 
 firebase.auth().onAuthStateChanged(firebaseUser => {
      // if user signed in
