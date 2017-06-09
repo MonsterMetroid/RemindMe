@@ -31,7 +31,7 @@ var Drew = '+14803109306'
 var Rob = '+14805289474'
 
 
-if chron iformation is left out of the route then it will execute the message every minute on the minute
+//if chron iformation is left out of the route then it will execute the message every minute on the minute
 router.get('/remind/:number/:message', function(req, res) {
      var j = schedule.scheduleJob('0 * * * * *', function() { 
           var destination = '*'+ req.params.number;
@@ -46,7 +46,7 @@ router.get('/remind/:number/:message', function(req, res) {
      })
 });
 
-provide phone numberto be sent to message and chron fields
+//provide phone numberto be sent to message and chron fields
 router.get('/remind/:number/:message/:chrS/:chrM/:chrH/:chrD/:chrMo/:chrDoW', function(req, res) {
      var j = schedule.scheduleJob(''+ req.params.chrS + ' '+ //chron second value
      	req.params.chrM + ' '+ //chron minute value
@@ -66,10 +66,8 @@ router.get('/remind/:number/:message/:chrS/:chrM/:chrH/:chrD/:chrMo/:chrDoW', fu
      })
 });
 
-// app.use('/api', router);
-app.get('routes/index', function(req, res){
-     res.send('');
-})
+app.use('/api', router);
+
 
 var server = app.listen(port, function(){
 	var host = server.address().address
