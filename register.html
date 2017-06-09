@@ -1,83 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
      <meta charset="UTF-8">
      <title>Remind Me!</title>
      <script src="https://use.fontawesome.com/f7d69fdfeb.js"></script>
      <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-     <link rel="stylesheet" type="text/css" href="../public/bsTheme.css">
+     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-
 <body>
-     <!--NAV BAR-->
-     <nav class="navbar navbar-default">
-          <div class="container">
-               <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                         <span class="sr-only">Toggle navigation</span>
-                         <span class="icon-bar"></span>
-                         <span class="icon-bar"></span>
-                         <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Remind Me!</a>
-               </div>
-          </div>
-     </nav>
-     <div class="container" id="register-container">
-          <div class="row">
-               <div class="col-md-4">
-                    <div class="panel-body">
-                         <!-- form to submit data -->
-                         <div>
-                              <div class="form-group" id="formText">
-                                   <label>Name</label>
-                                   <input type="text" class="form-control" placeholder="Name" name="name" id="name-input">
+
+<!-- NAV BAR -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Remind Me!</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li> -->
+        <!-- <li><a href="about.html">About</a></li> --> 
+      <!-- </ul> -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html" id="logout-button"><button class="btn btn-primary btn-xl active">Log out</button></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--Sign up form-->
+<div class="container" id="register-container">
+     <div class="row">
+          <div class="col-lg-12">
+            <form id="signUpForm" name="sentMessage" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+
+                              <div class="panel panel-default" id="panel-center">
+                                   <div class="panel-heading">
+                                   <h3 class="panel-title">SIGN UP</h3>
+                                        </div>
+                                   <div class="panel-body">
+
+                                <div class="form-group">
+                                    <input class="form-control" id="email-input" type="email" placeholder="Email Address*" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" id="phone-number-input" type="tel" placeholder="Cell Phone Number *" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" id="password-input" type="text" placeholder="Password *" required data-validation-required-message="Please enter password.">
+                                    <p class="help-block text-danger"></p>
+                                </div>                        
+
+                                <!-- <div class="form-group">
+                                   <label for="carrier">Cell Phone Carrier</style></label>
+                                             <select id="carrier">
+                                                  <option>Verizon</option>
+                                                  <option>Sprint</option>
+                                                  <option>AT&T</option>
+                                                  <option>T-Mobile</option>
+                                             </select>
+                                </div> -->
+
+                                
+
+                                <div>
+                                <button class="btn btn-success btn-xl active" id="signup-button">Submit</button>
+                                </div>
+
+                                
+
+                    </div>
+                  </div>
+
+              </div>
                               </div>
-                              <div class="form-group" id="formText">
-                                   <label>Username</label>
-                                   <input type="text" class="form-control" placeholder="Name" name="name" id="username-input">
-                              </div>
-                              <div class="form-group" id="formText">
-                                   <label for="email-input">Email Address</label>
-                                   <input class="form-control" id="email-input" type="text" placeholder="randomRachel@yourMail.com">
-                              </div>
-                              <div class="form-group" id="formText">
-                                   <label for="password-input">Password</label>
-                                   <input class="form-control" id="password-input" type="text" placeholder="your password here">
-                              </div>
-                              <div class="form-group" id="formText">
-                                   <label for="phone-number-input">Phone Number</label>
-                                   <input class="form-control" id="phone-number-input" type="text" placeholder="+18765554433">
-                              </div>
-                             
-                              <br>
-                              <div class="row">
-                                   <div class="col-md-3">
-                                        <button class="btn btn-primary" id="login-button" type="submit">Login</button>
-                                   </div>
-                                   <div class="col-md-3">
-                                        <button class="btn btn-secondary" id="signup-button" type="submit">Signup</button>
-                                   </div>
-                                   <div class="col-md-3">
-                                        <button class="btn btn-secondary pull-right" id="logout-button" type="submit">logout
-                                        </button>
-                                   </div>
-                                   <div class="col-md-3">
-                                        <button class="btn btn-success pull-right" id="scheduleMessageButton" type="submit">Schedule Message
-                                        </button>
-                                   </div>
-                              </div>
-                         </div>
+                         </form>
                     </div>
                </div>
           </div>
-          </div>
-          
-<!-- Messaging Panel Container -->
+     </div>
+</div>
 
-<!--Message Form-->
 <div class="container" id="messaging-container">
      <div class="row">
           <div class="col-lg-12">
@@ -86,30 +101,30 @@
                       <div class="col-md-6">
                           <div class="panel panel-default">
                               <div class="panel-heading">
-                                  <h3 class="panel-title">Reminder Text Message</h3>
+                                  <h3 class="panel-title">Set Reminder Text Message</h3>
                               </div>
                               <div class="panel-body">
 
 
                                 <div class="form-group">
                                     <label for="comment-input">Enter Message Here</label>
-                                    <textarea class="form-control" id="comment-input" rows="5" placeholder="e.g. Don't Forget..."></textarea>
+                                    <textarea class="form-control" id="message-input" rows="5" placeholder="e.g. Don't Forget..."></textarea>
                                 </div>                        
 
                                 <div class="form-group">
                                     <label for="date-input">Send on</label>
-                                    <input class="form-control" id="date" type="date" placeholder="Enter date *" required data-validation-required-message="Please enter date.">
+                                    <input class="form-control" id="date-input" type="date" placeholder="Enter date *" required data-validation-required-message="Please enter date.">
                                     <p class="help-block text-danger"></p>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="time-input">At</label>
-                                    <input class="form-control" id="time" type="time" placeholder="Enter time *" required data-validation-required-message="Please enter time.">
+                                    <input class="form-control" id="time-input" type="time" placeholder="Enter time *" required data-validation-required-message="Please enter time.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                 
                                 <div>
-                                <button class="btn btn-success btn-xl active" id="scheduleMessageButton">Schedule Message</button>
+                                <button class="btn btn-success btn-xl active" id="schedule-msg-button">Submit</button>
                                 </div>
 </form>
                               </div>
@@ -119,12 +134,10 @@
                             <div class="col-lg-6">
                               <div class="panel panel-default">
                                   <div class="panel-heading">
-                                      <h3 class="panel-title"></h3>
+                                      <h3 class="panel-title">Scheduled Text Messages</h3>
                                   </div>
                                   <div class="panel-body">
-                                    <p id="comment-display">Scheduled message text will go here.</p>
-                                    <h6 id="date-display">06/01/2017</h6>
-                                    <h6 id="time-display">10:30AM</h6>
+                                    
                                   </div>
                               </div>
           
@@ -136,6 +149,8 @@
     </div>
   </div>
 </div>
+
+
           <script src="https://code.jquery.com/jquery-3.2.1.js " integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin=" anonymous "></script>
           <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
           <script type="text/javascript" src="javascript/userAuthfire.js">
