@@ -38,8 +38,7 @@ loginButton.addEventListener('click', e => {
      const password = txtPassword.value;
      let userPnumber = txtphoneNumber.value;
      const auth = firebase.auth();
-     console.log("target phone number---> " + userPnumber);
-
+    
      if (userPnumber.length === 10) {
 
           phone = userPnumber;
@@ -55,7 +54,7 @@ loginButton.addEventListener('click', e => {
 
           promise.catch(e => console.log(e.message));
      } else {
-          $('#message').text("Please enter a valid Phonenumber to send an SMS to - example: 456-777-8899").css({'color' :'red'});
+          $('#message').text("Please enter a valid Phonenumber to send an SMS to - example: 456-777-8899").css({ 'color': 'red' });
           $("#email-input").val("");
           $("#password-input").val("");
           $("#phone-number-input").val("");
@@ -93,9 +92,7 @@ signupButton.addEventListener('click', e => {
      // push user object to database, refrencing username as child_node name \\
      database.ref(username).push(user);
 
-     console.log("------>" + user.number);
-
-     this.phoneNumber = user.number;
+    
      phone = user.number;
      setPhone(phone);
 
@@ -111,9 +108,9 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 });
 
-var setPhone = function(pNumber){
-  localStorage.clear();
-  localStorage.setItem("phone", pNumber);
+var setPhone = function(pNumber) {
+     localStorage.clear();
+     localStorage.setItem("phone", pNumber);
 };
 
 
@@ -124,9 +121,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
           database.ref().on("child_added", function(childSnapshot, prevChildKey) {
                     // Store everything into a variable.
                     const userName = childSnapshot.val().name;
-                    const destination = childSnapshot.val().number;                    
+                    const destination = childSnapshot.val().number;
 
-                    console.log("logged in");
+                    
                     // hide unneeded login and signup features 
                     $("#messaging-container, #email-input, #password-input, #name-input, #username-input, #login-button, #signup-button, #phone-number-input, #formText, #login-container, #register-container").hide();
                     // show logout button and messaging feautures 
@@ -137,7 +134,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                })
                // do nothing until user logs in or signs up
      } else {
-          console.log('not logged in');
+          
           // show needed input field
           $("#email-input, #password-input, #login-button, #formText, #formText1, #signup-button, #phone-number-input, #phoneButton, #register-container, #login-container").show();
           // hide unneeded fields

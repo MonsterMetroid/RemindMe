@@ -85,7 +85,7 @@
                <div class="col-lg-12">
                     <div id="messageForm" name="sentMessage" novalidate>
                          <div class="row">
-                              <div class="col-md-6">
+                            
                                    <div class="panel panel-default">
                                         <div class="panel-heading">
                                              <h3 class="panel-title">Set Reminder Text Message</h3>
@@ -112,15 +112,25 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="col-lg-6">
+                         <!-- <div class="col-lg-6">
                               <div class="panel panel-default">
                                    <div class="panel-heading">
                                         <h3 class="panel-title">Scheduled Text Messages</h3>
                                    </div>
                                    <div class="panel-body">
+                                        <table class="table table-hover" id='scheduled-messages-table'>
+                                             <thead>
+                                                  <tr>
+                                                       <th id="column-header"><strong>Scheduled Time</strong></th>
+                                                       <th id="column-header"><strong>Message</strong></th>
+                                                  </tr>
+                                             </thead>
+                                             <tbody>
+                                             </tbody>
+                                        </table>
                                    </div>
                               </div>
-                         </div>
+                         </div> -->
                     </div>
                </div>
           </div>
@@ -133,6 +143,9 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
      <script type="text/javascript" src="javascript/userAuthfire.js"></script>
      <script type="text/javascript" src="javascript/messages.js"></script>
+     <script type="text/javascript" src="server.js"></script>
+     <!-- moment.js cdn -->
+     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </body>
 
 </html>
