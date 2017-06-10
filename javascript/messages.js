@@ -1,9 +1,9 @@
 var queryURL
 
 
+console.log(phone);
 
-
-$("#scheduleMessageButton").click(function(event){
+$("#schedule-msg-button").click(function(event){
     
         // alert("Data: " + data + "\nStatus: " + status);
         event.preventDefault();
@@ -14,7 +14,7 @@ $("#scheduleMessageButton").click(function(event){
 				var month = dateMonth[1];
 				var min = cTime[1];
 				var hour = cTime[0];				
-				queryURL = "http://localhost:8080/api/remind/4805289474/" + smsMessage + "/0/" + min + "/" + hour + "/" + date + "/" + month + "/*"
+				queryURL = "http://localhost:8080/api/remind/"+phone+"/" + smsMessage + "/0/" + min + "/" + hour + "/" + date + "/" + month + "/*"
     
     // $.post(queryURL);
 

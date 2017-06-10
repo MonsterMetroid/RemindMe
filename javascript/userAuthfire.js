@@ -10,6 +10,7 @@ const logoutButton = document.getElementById('logout-button');
 var signupButton = document.getElementById('signup-button');
 const phonenumberButton = document.getElementById('phoneButton');
 const scheduleMessageButton = document.getElementById('scheduleMessgeButton');
+var phone = localStorage.phone;
 
 
 
@@ -41,7 +42,8 @@ loginButton.addEventListener('click', e => {
 
      if (userPnumber.length === 10) {
 
-
+          phone = userPnumber;
+          setPhone(phone);
           // sign in \\
           const promise = auth.signInWithEmailAndPassword(email, password);
 
@@ -94,6 +96,8 @@ signupButton.addEventListener('click', e => {
      console.log("------>" + user.number);
 
      this.phoneNumber = user.number;
+     phone = user.number;
+     setPhone(phone);
 
 
 
@@ -107,6 +111,11 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 });
 
+var setPhone = function(pNumber){
+  localStorage.clear();
+  localStorage.setItem("phone", pNumber);
+};
+
 
 // add real-time  listener for user logged-in status 
 firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -115,7 +124,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
           database.ref().on("child_added", function(childSnapshot, prevChildKey) {
                     // Store everything into a variable.
                     const userName = childSnapshot.val().name;
-                    const destination = childSnapshot.val().number;
+                    const destination = childSnapshot.val().number;                    
 
                     console.log("logged in");
                     // hide unneeded login and signup features 
