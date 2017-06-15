@@ -27,8 +27,8 @@ var client = new twilio(accountSid, authToken);
 
 //phone numbers for testing
 
-var Drew = '+14803109306'
-var Rob = '+14805289474'
+// var Drew = '+14803109306'
+// var Rob = '+14805289474'
 
 
 //if chron iformation is left out of the route then it will execute the message every minute on the minute

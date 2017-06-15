@@ -1,7 +1,7 @@
 var queryURL
 
 
-console.log(phone);
+
 
 $("#schedule-msg-button").click(function(event){
     
@@ -28,7 +28,7 @@ $("#schedule-msg-button").click(function(event){
          
          
           });
-
+// clear message panel input fields
     $('#message-input').val('');
     $('#time-input').val('');
     $('#date-input').val('');
